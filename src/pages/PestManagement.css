@@ -1,0 +1,374 @@
+/* Pest & Disease Management Styling */
+
+.pest-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+@media (max-width: 1024px) {
+  .pest-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Pest Cards */
+.pest-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pest-card-box {
+  background-color: var(--card-bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 24px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.pest-card-box:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary-cream);
+}
+
+.pest-card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+}
+
+.pest-title-name {
+  font-family: var(--font-header);
+  font-size: 1.35rem;
+  color: var(--text-dark-primary);
+  margin: 0;
+}
+
+.pest-latin {
+  font-style: italic;
+  font-size: 0.82rem;
+  color: var(--text-dark-secondary);
+}
+
+.pest-risk-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+}
+
+.pest-risk-tag.high {
+  background-color: rgba(201, 93, 59, 0.15);
+  color: #c95d3b;
+}
+
+.pest-risk-tag.medium {
+  background-color: rgba(191, 143, 95, 0.15);
+  color: var(--primary-accent);
+}
+
+.pest-risk-tag.low {
+  background-color: rgba(79, 110, 90, 0.15);
+  color: var(--primary-forest);
+}
+
+.pest-damage-text {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-dark-secondary);
+  margin-bottom: 16px;
+}
+
+.pest-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 20px;
+}
+
+.pest-meta-grid div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pest-meta-grid div strong {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: var(--text-dark-secondary);
+}
+
+.pest-meta-grid div span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-dark-primary);
+}
+
+/* Accordion sections */
+.pest-details-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.accordion-section h4 {
+  font-family: var(--font-header);
+  font-size: 0.92rem;
+  color: var(--text-dark-primary);
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+.accordion-section p {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--text-dark-secondary);
+  margin: 0;
+}
+
+.accordion-section-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 640px) {
+  .accordion-section-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.accordion-section-row h4 {
+  font-family: var(--font-header);
+  font-size: 0.92rem;
+  color: var(--text-dark-primary);
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+.accordion-section-row ul {
+  padding-left: 16px;
+  margin: 0;
+}
+
+.accordion-section-row ul li {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--text-dark-secondary);
+  margin-bottom: 4px;
+}
+
+/* Emergency Backup */
+.chemical-backup-box {
+  background-color: #faf6f0;
+  border: 1px solid #ebd9c5;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-top: 6px;
+}
+
+.chemical-backup-box h5 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--primary-accent);
+  margin-top: 0;
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+
+.chemical-backup-box p {
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--text-dark-secondary);
+  margin: 0 0 4px 0;
+}
+
+.chemical-backup-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* Disease Cards */
+.disease-cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+  .disease-cards-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.disease-card {
+  background-color: var(--card-bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.disease-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.disease-name-title {
+  font-family: var(--font-header);
+  font-size: 1.1rem;
+  color: var(--text-dark-primary);
+  margin: 0;
+}
+
+.disease-agent {
+  font-size: 0.75rem;
+  color: var(--text-dark-secondary);
+}
+
+.disease-risk-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.disease-risk-badge.medium {
+  background-color: rgba(191, 143, 95, 0.15);
+  color: var(--primary-accent);
+}
+
+.disease-risk-badge.low {
+  background-color: rgba(79, 110, 90, 0.15);
+  color: var(--primary-forest);
+}
+
+.disease-body p {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--text-dark-secondary);
+  margin: 0 0 8px 0;
+}
+
+.disease-action-bullets strong {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--text-dark-secondary);
+  margin-bottom: 4px;
+}
+
+.disease-action-bullets ul {
+  padding-left: 16px;
+  margin: 0;
+}
+
+.disease-action-bullets ul li {
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--text-dark-secondary);
+  margin-bottom: 2px;
+}
+
+/* IPM Timeline */
+.ipm-calendar-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  padding-left: 12px;
+  margin-top: 16px;
+}
+
+.ipm-calendar-timeline::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background-color: var(--border-light);
+}
+
+.ipm-timeline-item {
+  position: relative;
+  padding-left: 20px;
+}
+
+.ipm-timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--primary-accent);
+  transform: translateX(-50%);
+}
+
+.ipm-month-label {
+  display: block;
+  font-family: var(--font-header);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-dark-primary);
+  margin-bottom: 2px;
+}
+
+.ipm-activity-text {
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--text-dark-secondary);
+  margin: 0;
+}
+
+/* Beneficial Predators */
+.beneficials-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.beneficial-item-box {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background-color: var(--card-bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.beneficial-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.beneficial-text {
+  font-size: 0.85rem;
+  color: var(--text-dark-secondary);
+  line-height: 1.4;
+}

@@ -1,0 +1,418 @@
+/* Season Planner Page Styling */
+
+.planner-timeline-nav {
+  display: flex;
+  gap: 12px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 16px;
+  margin-top: 24px;
+  overflow-x: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.timeline-month-btn {
+  flex: 1;
+  min-width: 120px;
+  background: var(--card-bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline-month-btn:hover {
+  border-color: var(--primary-cream);
+  background-color: var(--card-bg);
+}
+
+.timeline-month-btn.active {
+  background-color: var(--primary-forest);
+  border-color: var(--primary-forest);
+  box-shadow: 0 4px 12px rgba(79, 110, 90, 0.2);
+}
+
+.timeline-month-num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-dark-secondary);
+}
+
+.timeline-month-btn.active .timeline-month-num {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.timeline-month-name {
+  font-family: var(--font-header);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-dark-primary);
+}
+
+.timeline-month-btn.active .timeline-month-name {
+  color: var(--card-bg);
+}
+
+.timeline-month-phase {
+  font-size: 0.72rem;
+  color: var(--text-dark-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.timeline-month-btn.active .timeline-month-phase {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Grid Layout */
+.planner-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+@media (max-width: 1024px) {
+  .planner-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.month-card-header {
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.month-phase-tag {
+  display: inline-block;
+  background-color: rgba(191, 143, 95, 0.1);
+  color: var(--primary-accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.month-title {
+  font-family: var(--font-header);
+  font-size: 1.6rem;
+  color: var(--text-dark-primary);
+  margin: 0;
+}
+
+/* Tasks */
+.planner-section h3 {
+  font-family: var(--font-header);
+  font-size: 1.15rem;
+  color: var(--text-dark-primary);
+  margin-top: 0;
+  margin-bottom: 14px;
+}
+
+.planner-tasks-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.planner-task-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background-color: var(--card-bg-subtle);
+  border: 1px solid var(--border-light);
+  padding: 14px;
+  border-radius: 8px;
+}
+
+.task-bullet {
+  background-color: var(--primary-cream);
+  color: var(--primary-accent);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.78rem;
+  flex-shrink: 0;
+}
+
+.task-text {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-dark-secondary);
+}
+
+/* Details Split */
+.planner-details-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 640px) {
+  .planner-details-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+.planner-split-card {
+  background-color: var(--card-bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.planner-split-card h4 {
+  font-family: var(--font-header);
+  font-size: 0.95rem;
+  color: var(--text-dark-primary);
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.planner-split-card p {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--text-dark-secondary);
+  margin: 0;
+}
+
+.irrigation-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.irrigation-pill-row span {
+  background-color: rgba(79, 110, 90, 0.1);
+  color: var(--primary-forest);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.irrigation-meta-text {
+  font-size: 0.75rem;
+  color: var(--text-dark-secondary);
+}
+
+/* Fertilizer Application Card Box */
+.fertilizer-section {
+  border-top: 1px solid var(--border-light);
+  padding-top: 20px;
+}
+
+.fertilizer-card-box {
+  display: flex;
+  gap: 16px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--primary-cream);
+  border-left: 4px solid var(--primary-forest);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.fert-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.fert-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.fert-type {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-dark-primary);
+  margin-bottom: 2px;
+}
+
+.fert-method {
+  font-size: 0.75rem;
+  color: var(--text-dark-secondary);
+  margin-bottom: 6px;
+}
+
+.fert-reason {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--text-dark-secondary);
+  margin: 0;
+}
+
+/* Right Column Alerts & KPIs */
+.alert-content-box {
+  display: flex;
+  gap: 12px;
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 20px;
+}
+
+.alert-content-box.warning {
+  background-color: rgba(191, 143, 95, 0.1);
+  border: 1px solid rgba(191, 143, 95, 0.2);
+}
+
+.alert-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.alert-text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.alert-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--primary-accent);
+  margin-bottom: 2px;
+}
+
+.alert-desc {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--text-dark-secondary);
+  margin: 0;
+}
+
+/* Monitoring Target Panel */
+.monitoring-panel h4 {
+  font-family: var(--font-header);
+  font-size: 0.92rem;
+  color: var(--text-dark-primary);
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.monitoring-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.monitoring-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--card-bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.monitoring-lbl {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-dark-secondary);
+}
+
+.monitoring-val {
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.monitoring-item.pest .monitoring-val {
+  color: var(--primary-accent);
+}
+
+.monitoring-item.disease .monitoring-val {
+  color: #c95d3b;
+}
+
+/* Harvest KPIs Card */
+.kpi-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.kpi-metric-box {
+  background-color: var(--card-bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+}
+
+.kpi-lbl {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-dark-secondary);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.kpi-val {
+  font-family: var(--font-header);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--primary-forest);
+}
+
+/* Bullet list and rotation sections */
+.harvest-guidelines-box, .rotation-recovery-box {
+  border-top: 1px solid var(--border-light);
+  padding-top: 16px;
+  margin-top: 16px;
+}
+
+.harvest-guidelines-box h4, .rotation-recovery-box h4 {
+  font-family: var(--font-header);
+  font-size: 0.95rem;
+  color: var(--text-dark-primary);
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.guidelines-bullets {
+  padding-left: 18px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.guidelines-bullets li {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--text-dark-secondary);
+}
+
+.rotation-recovery-box p {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--text-dark-secondary);
+  margin: 0 0 6px 0;
+}
+
+.rotation-recovery-box p:last-child {
+  margin-bottom: 0;
+}

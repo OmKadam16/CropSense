@@ -1,0 +1,417 @@
+/* ====================================================
+   Shared page design system — matches /analyze exactly
+   ==================================================== */
+
+/* ----- Page Header (identical to .analyze-header) ----- */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 36px;
+}
+
+.page-header-left {
+  flex: 1;
+}
+
+.page-title {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary-brown);
+  margin-bottom: 4px;
+}
+
+.page-subtitle {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--light-brown);
+}
+
+.page-header-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+}
+
+.season-context {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--light-green);
+  border-radius: 24px;
+}
+
+.season-label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--forest-green);
+}
+
+.season-divider {
+  color: var(--forest-green);
+  opacity: 0.4;
+  font-size: 10px;
+}
+
+.season-window {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--forest-green);
+  opacity: 0.8;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--primary-brown);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark-brown);
+}
+
+.user-role {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--light-brown);
+}
+
+/* ----- Card Panel (identical to .integration-panel / .overlay-panel) ----- */
+.card-panel {
+  background: var(--white);
+  border: 1px solid var(--light-beige);
+  border-radius: 16px;
+  padding: 28px 32px;
+  margin-bottom: 24px;
+  transition: box-shadow 0.2s ease;
+}
+
+.card-panel:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+}
+
+.card-panel-title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary-brown);
+  margin-bottom: 24px;
+}
+
+/* ----- Status row (identical to .integration-status-row) ----- */
+.status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.status-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.status-dot.online {
+  background: var(--mint-green);
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+.status-dot.warning {
+  background: #FF9800;
+  box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.2);
+}
+
+.status-text {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dark-brown);
+}
+
+.status-badge {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--white);
+  background: var(--forest-green);
+  padding: 4px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* ----- Form elements (identical to .form-group-analyze) ----- */
+.form-group-analyze {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group-analyze label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--dark-brown);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group-analyze input,
+.form-group-analyze select {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--dark-brown);
+  background: var(--white);
+  border: 2px solid var(--light-beige);
+  border-radius: 10px;
+  padding: 11px 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+  width: 100%;
+}
+
+.form-group-analyze input:focus,
+.form-group-analyze select:focus {
+  border-color: var(--primary-brown);
+}
+
+.form-group-analyze input::placeholder {
+  color: var(--light-brown);
+  opacity: 0.5;
+}
+
+.form-group-analyze select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2392400E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+
+/* ----- Primary green action button (identical to .btn-sync) ----- */
+.btn-primary-green {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+  background: var(--forest-green);
+  padding: 12px 28px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 200ms ease;
+  white-space: nowrap;
+}
+
+.btn-primary-green:hover {
+  background: #236A2F;
+  transform: translateY(-2px);
+}
+
+/* ----- Toggle switch (identical to Analyze) ----- */
+.toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  border-radius: 8px;
+}
+
+.toggle-row:hover {
+  background: var(--cream);
+}
+
+.toggle-row + .toggle-row {
+  border-top: 1px solid var(--light-beige);
+}
+
+.toggle-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.toggle-label {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark-brown);
+}
+
+.toggle-desc {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--light-brown);
+  opacity: 0.7;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.toggle-switch input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  inset: 0;
+  background: var(--light-beige);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.toggle-slider::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  background: var(--white);
+  border-radius: 50%;
+  transition: transform 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+.toggle-switch input:checked + .toggle-slider {
+  background: var(--forest-green);
+}
+
+.toggle-switch input:checked + .toggle-slider::after {
+  transform: translateX(20px);
+}
+
+.toggle-switch input:focus-visible + .toggle-slider {
+  box-shadow: 0 0 0 3px rgba(45, 122, 61, 0.25);
+}
+
+/* ----- Info Feature Grid (identical to Analyze bottom grid) ----- */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.info-card {
+  background: var(--white);
+  border: 1px solid var(--light-beige);
+  border-radius: 16px;
+  padding: 28px 24px;
+  transition: all 200ms ease;
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+  border-top: 3px solid var(--forest-green);
+  padding-top: 26px;
+}
+
+.info-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--light-green);
+  border-radius: 12px;
+  color: var(--forest-green);
+  margin-bottom: 20px;
+}
+
+.info-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-brown);
+  margin-bottom: 10px;
+}
+
+.info-text {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--light-brown);
+  line-height: 1.8;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .page-header-right {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .season-context {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .page-title {
+    font-size: 22px;
+  }
+
+  .card-panel {
+    padding: 24px 20px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,412 @@
+/* ===== Form Container ===== */
+.settings-form-container {
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-bottom: 96px;
+}
+
+/* ===== Avatar ===== */
+.settings-avatar-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.settings-avatar {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--primary-brown);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.settings-avatar-edit {
+  position: absolute;
+  bottom: 0;
+  right: -4px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--forest-green);
+  color: var(--white);
+  border: 2px solid var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.settings-avatar-edit:hover {
+  background: #236A2F;
+}
+
+/* ===== Form Grid ===== */
+.settings-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group-full {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dark-brown);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--dark-brown);
+  background: var(--white);
+  border: 2px solid var(--light-beige);
+  border-radius: 10px;
+  padding: 11px 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+  width: 100%;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--primary-brown);
+}
+
+.form-group input::placeholder {
+  color: var(--light-brown);
+  opacity: 0.5;
+}
+
+.form-group select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2392400E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+
+/* ===== Divider Heading ===== */
+.settings-divider-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--light-beige);
+  color: var(--primary-brown);
+}
+
+.settings-divider-heading svg {
+  flex-shrink: 0;
+}
+
+/* ===== Crop Tags ===== */
+.crop-tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 2px solid var(--light-beige);
+  border-radius: 10px;
+  min-height: 44px;
+  transition: border-color 0.2s ease;
+}
+
+.crop-tags:focus-within {
+  border-color: var(--primary-brown);
+}
+
+.crop-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--light-green);
+  color: var(--forest-green);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 10px 4px 12px;
+  border-radius: 20px;
+}
+
+.crop-tag-remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--forest-green);
+  opacity: 0.6;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s;
+}
+
+.crop-tag-remove:hover {
+  opacity: 1;
+}
+
+.crop-add-btn {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary-brown);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: opacity 0.2s;
+}
+
+.crop-add-btn:hover {
+  opacity: 0.7;
+}
+
+/* ===== Segmented Control ===== */
+.segmented-control {
+  display: flex;
+  background: var(--cream);
+  border-radius: 10px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.segmented-option {
+  flex: 1;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--light-brown);
+  background: transparent;
+  border: none;
+  padding: 9px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.segmented-option.active {
+  background: var(--white);
+  color: var(--primary-brown);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  font-weight: 700;
+}
+
+.segmented-option:hover:not(.active) {
+  color: var(--dark-brown);
+}
+
+/* ===== Billing Card ===== */
+.billing-card {
+  background: var(--white);
+  border: 1px solid var(--light-beige);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.billing-summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.billing-summary-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.billing-plan-label {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dark-brown);
+}
+
+.billing-plan-note {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--light-brown);
+  opacity: 0.6;
+}
+
+.billing-plan-price {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary-brown);
+  white-space: nowrap;
+}
+
+.billing-payment-row {
+  padding: 16px 0;
+  border-top: 1px solid var(--light-beige);
+  border-bottom: 1px solid var(--light-beige);
+  margin-bottom: 20px;
+}
+
+.billing-payment-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.billing-card-icon {
+  width: 40px;
+  height: 28px;
+  background: var(--cream);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-brown);
+  flex-shrink: 0;
+}
+
+.billing-card-name {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark-brown);
+}
+
+.billing-card-expiry {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--light-brown);
+  opacity: 0.6;
+}
+
+.billing-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-billing-edit {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary-brown);
+  background: transparent;
+  border: 2px solid var(--primary-brown);
+  padding: 10px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.btn-billing-edit:hover {
+  background: var(--cream);
+  transform: translateY(-2px);
+}
+
+.btn-billing-upgrade {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+  background: var(--primary-brown);
+  padding: 10px 24px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.btn-billing-upgrade:hover {
+  background: #6B3410;
+  transform: translateY(-2px);
+}
+
+/* ===== Bottom Action Bar ===== */
+.settings-bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 240px;
+  right: 0;
+  background: var(--white);
+  border-top: 1px solid var(--light-beige);
+  padding: 16px 40px;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 50;
+}
+
+.btn-save-changes {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+  background: var(--forest-green);
+  padding: 12px 32px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.btn-save-changes:hover {
+  background: #236A2F;
+  transform: translateY(-2px);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .settings-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .billing-summary-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .billing-actions {
+    flex-direction: column;
+  }
+
+  .billing-actions button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .settings-bottom-bar {
+    left: 0;
+    padding: 16px 20px;
+  }
+
+  .btn-save-changes {
+    width: 100%;
+    justify-content: center;
+  }
+}

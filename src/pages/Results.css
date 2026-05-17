@@ -1,0 +1,421 @@
+/* Upgraded Vision Context & Synthesis Portal Styles */
+
+.results-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--text-dark-secondary);
+  margin-bottom: 6px;
+}
+
+.results-breadcrumb a {
+  color: var(--primary-accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.results-breadcrumb a:hover {
+  opacity: 0.8;
+}
+
+/* Vision Image Banner */
+.vision-image-banner {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.75)), url('https://images.unsplash.com/photo-1592982537447-6f2a6a0c8188?auto=format&fit=crop&w=1200&q=80');
+  background-size: cover;
+  background-position: center;
+  height: 240px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+}
+
+.vision-image-overlay {
+  display: flex;
+  flex-direction: column;
+  color: var(--white);
+}
+
+.vision-image-overlay h3 {
+  font-family: var(--font-header);
+  font-size: 1.6rem;
+  color: var(--white);
+  margin: 6px 0 2px 0;
+}
+
+.vision-image-overlay p {
+  font-size: 0.82rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.vision-image-badge {
+  background-color: var(--primary-cream);
+  color: var(--text-dark-primary);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+  align-self: flex-start;
+  letter-spacing: 0.02em;
+}
+
+/* Vision Diagnostics */
+.vision-diagnostics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.diagnostic-tile {
+  background-color: var(--card-bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.tile-label {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: var(--text-dark-secondary);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-bottom: 4px;
+}
+
+.tile-value {
+  display: block;
+  font-family: var(--font-header);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-dark-primary);
+  margin-bottom: 6px;
+}
+
+.tile-desc {
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: var(--text-dark-secondary);
+  margin: 0;
+}
+
+/* Portal List of Reports */
+.reports-portal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.report-portal-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: var(--card-bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.report-portal-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary-accent);
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 12px rgba(139, 90, 43, 0.05);
+}
+
+.report-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.report-card-icon.texture {
+  background-color: rgba(79, 110, 90, 0.12);
+  color: var(--primary-forest);
+}
+
+.report-card-icon.nutrients {
+  background-color: rgba(191, 143, 95, 0.12);
+  color: var(--primary-accent);
+}
+
+.report-card-icon.crops {
+  background-color: rgba(139, 90, 43, 0.12);
+  color: var(--text-dark-primary);
+}
+
+.report-card-icon.planner {
+  background-color: rgba(79, 110, 90, 0.12);
+  color: var(--primary-forest);
+}
+
+.report-card-icon.pest {
+  background-color: rgba(201, 93, 59, 0.12);
+  color: #c95d3b;
+}
+
+.report-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.report-card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.report-card-header-row h4 {
+  font-family: var(--font-header);
+  font-size: 1.05rem;
+  color: var(--text-dark-primary);
+  margin: 0;
+}
+
+.report-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-light);
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: var(--text-dark-secondary);
+}
+
+.report-badge.success {
+  background-color: rgba(79, 110, 90, 0.1);
+  color: var(--primary-forest);
+  border-color: rgba(79, 110, 90, 0.2);
+}
+
+.report-badge.danger {
+  background-color: rgba(201, 93, 59, 0.1);
+  color: #c95d3b;
+  border-color: rgba(201, 93, 59, 0.2);
+}
+
+.report-card-info p {
+  font-size: 0.8rem;
+  color: var(--text-dark-secondary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.report-card-arrow {
+  color: var(--text-dark-secondary);
+  opacity: 0.5;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  margin-right: 4px;
+}
+
+.report-portal-card:hover .report-card-arrow {
+  transform: translateX(4px);
+  opacity: 1;
+  color: var(--primary-accent);
+}
+
+/* Two-column layout */
+.results-columns {
+  display: flex;
+  gap: 24px;
+}
+
+.results-col-primary {
+  flex: 1.6;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.results-col-secondary {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .results-columns {
+    flex-direction: column;
+  }
+}
+
+/* Agronomic Score Ring */
+.health-summary-panel {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 24px;
+}
+
+.health-score-ring {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid var(--border-light);
+  border-top-color: var(--primary-forest);
+  border-right-color: var(--primary-forest);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 16px auto;
+}
+
+.health-score-num {
+  font-family: var(--font-header);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-dark-primary);
+}
+
+.health-score-total {
+  font-size: 0.9rem;
+  color: var(--text-dark-secondary);
+  margin-left: 2px;
+}
+
+.health-verdict {
+  font-family: var(--font-header);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary-forest);
+  letter-spacing: 0.05em;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.health-meta-desc {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--text-dark-secondary);
+  margin: 0;
+}
+
+/* Map Card */
+.map-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.map-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Pipeline styles */
+.pipeline-card {
+  background-color: var(--card-bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.pipeline-title {
+  font-family: var(--font-header);
+  font-size: 1.1rem;
+  color: var(--text-dark-primary);
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.pipeline-track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.pipeline-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.pipeline-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--border-light);
+}
+
+.pipeline-step.done .pipeline-dot {
+  background-color: var(--primary-forest);
+}
+
+.pipeline-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-dark-secondary);
+  letter-spacing: 0.02em;
+}
+
+.pipeline-step.done .pipeline-label {
+  color: var(--text-dark-primary);
+}
+
+.pipeline-line {
+  height: 1px;
+  flex: 1;
+  background-color: var(--border-light);
+  margin-bottom: 16px; /* align with dots */
+}
+
+.pipeline-line.fill {
+  background-color: var(--primary-forest);
+}
+
+.pipeline-progress-track {
+  height: 4px;
+  background-color: var(--border-light);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.pipeline-progress-fill {
+  height: 100%;
+  background-color: var(--primary-forest);
+  border-radius: 2px;
+}
+
+.pipeline-pct {
+  font-size: 0.72rem;
+  color: var(--text-dark-secondary);
+}
+
+.farm-profile-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  background: var(--light-green);
+  border: 1px solid var(--forest-green);
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--forest-green);
+}
+
+.farm-profile-banner strong {
+  text-transform: capitalize;
+}

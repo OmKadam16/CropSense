@@ -1,0 +1,375 @@
+/* Soil Nutrient Analysis Page Styling */
+
+.nutrient-grid-page {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+@media (max-width: 1024px) {
+  .nutrient-grid-page {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* N-P-K Card Elements */
+.npk-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.npk-card {
+  display: flex;
+  gap: 20px;
+  background-color: var(--card-bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 20px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.npk-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary-cream);
+}
+
+.npk-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  font-family: var(--font-header);
+  font-size: 1.75rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.npk-card.low .npk-badge {
+  background-color: rgba(191, 143, 95, 0.15);
+  color: var(--primary-accent);
+}
+
+.npk-card.medium .npk-badge {
+  background-color: rgba(163, 144, 124, 0.2);
+  color: #7c6854;
+}
+
+.npk-card.high .npk-badge {
+  background-color: rgba(79, 110, 90, 0.15);
+  color: var(--primary-forest);
+}
+
+.npk-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.npk-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dark-primary);
+  margin-bottom: 4px;
+}
+
+.npk-status-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.npk-status-val {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.npk-card.low .npk-status-val {
+  color: var(--primary-accent);
+}
+
+.npk-card.medium .npk-status-val {
+  color: #8c735c;
+}
+
+.npk-card.high .npk-status-val {
+  color: var(--primary-forest);
+}
+
+.npk-status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.npk-status-indicator.low {
+  background-color: var(--primary-accent);
+}
+
+.npk-status-indicator.medium {
+  background-color: #8c735c;
+}
+
+.npk-status-indicator.high {
+  background-color: var(--primary-forest);
+}
+
+.npk-advice {
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--text-dark-secondary);
+  margin: 0;
+}
+
+/* Organic Matter Section */
+.organic-matter-section {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+@media (max-width: 640px) {
+  .organic-matter-section {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.organic-gauge {
+  flex-shrink: 0;
+}
+
+.organic-circle {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 8px solid var(--primary-cream);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--card-bg-subtle);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.organic-circle-value {
+  font-family: var(--font-header);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--primary-accent);
+}
+
+.organic-circle-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-dark-secondary);
+  letter-spacing: 0.02em;
+}
+
+.organic-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.organic-status-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+@media (max-width: 640px) {
+  .organic-status-header {
+    justify-content: center;
+  }
+}
+
+.organic-status-header h3 {
+  font-family: var(--font-header);
+  font-size: 1.2rem;
+  margin: 0;
+  color: var(--text-dark-primary);
+}
+
+.organic-health-badge {
+  background-color: rgba(79, 110, 90, 0.1);
+  color: var(--primary-forest);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.organic-details-text {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-dark-secondary);
+  margin: 0;
+}
+
+.soil-action-pill {
+  display: inline-block;
+  align-self: flex-start;
+  background-color: var(--primary-cream);
+  color: var(--primary-accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 6px;
+}
+
+@media (max-width: 640px) {
+  .soil-action-pill {
+    align-self: center;
+  }
+}
+
+/* pH Scale Card */
+.ph-gauge-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.ph-value-display {
+  font-family: var(--font-header);
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--primary-forest);
+  line-height: 1;
+}
+
+.ph-category-badge {
+  background-color: var(--primary-cream);
+  color: var(--primary-accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 6px;
+  letter-spacing: 0.02em;
+}
+
+.ph-slider-track {
+  margin-bottom: 24px;
+}
+
+.ph-scale-markers {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-dark-secondary);
+  margin-bottom: 8px;
+  padding: 0 4px;
+}
+
+.ph-scale-markers span.optimal {
+  color: var(--primary-forest);
+  font-weight: 800;
+}
+
+.ph-slider-bar {
+  height: 6px;
+  background: linear-gradient(90deg, #ff4d4d 0%, #ffdb4d 30%, #4dff4d 60%, #4da6ff 85%, #b34dff 100%);
+  border-radius: 10px;
+  position: relative;
+  margin: 0 8px;
+}
+
+.ph-slider-pointer {
+  width: 14px;
+  height: 14px;
+  background-color: var(--card-bg);
+  border: 3.5px solid var(--primary-forest);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  transition: left 1s ease-in-out;
+}
+
+.ph-scale-legend {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-dark-secondary);
+  margin-top: 6px;
+}
+
+.ph-advice-text {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-dark-secondary);
+  margin: 0;
+  text-align: center;
+}
+
+/* Micronutrients Card */
+.deficiency-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.deficiency-item {
+  display: flex;
+  gap: 12px;
+  background-color: var(--card-bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.deficiency-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-weight: 800;
+  font-size: 0.78rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.deficiency-item.warning .deficiency-icon-wrap {
+  background-color: rgba(191, 143, 95, 0.15);
+  color: var(--primary-accent);
+}
+
+.deficiency-item.secure .deficiency-icon-wrap {
+  background-color: rgba(79, 110, 90, 0.15);
+  color: var(--primary-forest);
+}
+
+.deficiency-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.deficiency-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-dark-primary);
+}
+
+.deficiency-desc {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--text-dark-secondary);
+  margin: 0;
+}

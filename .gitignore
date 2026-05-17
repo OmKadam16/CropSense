@@ -1,1 +1,8 @@
 .rocketride/
+.env
+dist/
+node_modules/
+.DS_Store
+e2e-test.mjs
+*.pipe
+cropsense images/
