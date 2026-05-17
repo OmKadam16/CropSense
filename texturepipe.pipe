@@ -1,0 +1,34 @@
+{
+  "project_id": "f73d0524-a608-4abf-a73e-35ae4a3f06d9",
+  "components": [
+    {
+      "id": "dropper_1",
+      "provider": "dropper",
+      "config": {
+        "hideForm": true,
+        "mode": "Source",
+        "parameters": {},
+        "type": "dropper"
+      },
+      "ui": {
+        "position": {
+          "x": 495,
+          "y": 495
+        },
+        "measured": {
+          "width": 150,
+          "height": 66
+        },
+        "nodeType": "default",
+        "formDataValid": true
+      }
+    }
+  ],
+  "viewport": {
+    "x": -772,
+    "y": -688.5,
+    "zoom": 2
+  },
+  "version": 1,
+  "docRevision": 1
+}

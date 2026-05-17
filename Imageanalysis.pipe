@@ -1,0 +1,314 @@
+{
+    "project_id": "b1be4829-3b31-4f6b-b78e-434f3fbae67d",
+    "components": [
+        {
+            "id": "dropper_1",
+            "provider": "dropper",
+            "name": "Image Analysis",
+            "config": {
+                "hideForm": true,
+                "mode": "Source",
+                "parameters": {},
+                "type": "dropper"
+            },
+            "ui": {
+                "position": {
+                    "x": 12,
+                    "y": 46.5
+                },
+                "measured": {
+                    "width": 150,
+                    "height": 89
+                },
+                "nodeType": "default",
+                "formDataValid": true
+            }
+        },
+        {
+            "id": "parse_1",
+            "provider": "parse",
+            "config": {},
+            "ui": {
+                "position": {
+                    "x": 242,
+                    "y": 12
+                },
+                "measured": {
+                    "width": 150,
+                    "height": 136
+                },
+                "nodeType": "default",
+                "formDataValid": true
+            },
+            "input": [
+                {
+                    "lane": "tags",
+                    "from": "dropper_1"
+                }
+            ]
+        },
+        {
+            "id": "image_vision_openai_1",
+            "provider": "image_vision_openai",
+            "name": "Vision Analysis",
+            "config": {
+                "profile": "openai-4o-mini",
+                "openai-4-1": {},
+                "parameters": {
+                    "google": {}
+                },
+                "openai-4o-mini": {
+                    "apikey": "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",
+                    "systemPrompt": "You are an expert soil scientist with 25 years of experience in soil analysis. Your task is to examine soil photos and extract detailed visual characteristics that indicate soil type, health, and composition. Be precise and scientific in your observations.",
+                    "prompt": "You are an expert soil scientist analyzing soil photos. Extract visual characteristics and return ONLY valid JSON, no markdown, no explanations.\n\n{\n  \"visual_analysis\": {\n    \"color\": \"describe soil color (dark brown, reddish, light tan, etc)\",\n    \"texture_appearance\": \"sandy, silty, clayey, mixed, crumbly, etc\",\n    \"moisture_level\": \"dry, moist, or wet\",\n    \"organic_matter_visible\": number 0-100,\n    \"compaction_signs\": true or false,\n    \"surface_cracks\": \"none, minor, moderate, or significant\",\n    \"visible_aggregates\": \"describe soil structure\",\n    \"root_matter\": \"describe visible roots\",\n    \"surface_residue\": \"describe plant material\",\n    \"confidence_score\": number 0-100\n  }\n}"
+                }
+            },
+            "ui": {
+                "position": {
+                    "x": 467.7222127782859,
+                    "y": -279.01424775847045
+                },
+                "measured": {
+                    "width": 150,
+                    "height": 84
+                },
+                "nodeType": "default",
+                "formDataValid": true
+            },
+            "input": [
+                {
+                    "lane": "image",
+                    "from": "parse_1"
+                }
+            ]
+        },
+        {
+            "id": "image_vision_openai_2",
+            "provider": "image_vision_openai",
+            "name": "Texture Classification",
+            "config": {
+                "profile": "openai-4o-mini",
+                "openai-4-1": {},
+                "parameters": {
+                    "google": {}
+                },
+                "openai-4o-mini": {
+                    "apikey": "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",
+                    "systemPrompt": "Classify and analyze soil texture based on the photo user provides to determine soil composition and physical properties",
+                    "prompt": "You are a soil texture specialist. Based on the soil observations provided, classify the texture and return ONLY valid JSON, no markdown:\n\n{\n  \"texture_analysis\": {\n    \"texture_class\": \"clay, silty clay, sandy clay, clay loam, silty clay loam, sandy clay loam, loam, silt loam, sandy loam, loamy sand, sand, or silt\",\n    \"sand_percentage\": number 0-100,\n    \"silt_percentage\": number 0-100,\n    \"clay_percentage\": number 0-100,\n    \"water_holding_capacity\": \"low, medium, or high\",\n    \"drainage_rating\": \"poor, imperfect, moderate, somewhat excessive, or excessive\",\n    \"compaction_susceptibility\": \"low, medium, or high\",\n    \"workability\": \"poor, fair, good, or excellent\",\n    \"structural_stability\": \"poor, fair, good, or excellent\",\n    \"confidence_score\": number 0-100,\n    \"reasoning\": \"brief explanation\"\n  }\n}\n"
+                }
+            },
+            "ui": {
+                "position": {
+                    "x": 471.8865709260954,
+                    "y": -157.08375831046936
+                },
+                "measured": {
+                    "width": 150,
+                    "height": 93
+                },
+                "nodeType": "default",
+                "formDataValid": true
+            },
+            "input": [
+                {
+                    "lane": "image",
+                    "from": "parse_1"
+                }
+            ]
+        },
+        {
+            "id": "image_vision_openai_3",
+            "provider": "image_vision_openai",
+            "name": "Nutrient assmt",
+            "config": {
+                "profile": "openai-4o-mini",
+                "openai-4-1": {},
+                "parameters": {
+                    "google": {}
+                },
+                "openai-4o-mini": {
+                    "apikey": "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",
+                    "systemPrompt": "Infer and estimate soil nutrient levels (NPK and micronutrients) from soil observations and characteristics",
+                    "prompt": "Based on the soil observations provided, estimate the soil nutrient status and pH. Return ONLY valid JSON, no markdown, no code blocks, no explanations. Start with { and end with }\n\n{\n  \"nutrient_analysis\": {\n    \"nitrogen_status\": \"one of: very low, low, medium, high, very high\",\n    \"phosphorus_status\": \"one of: very low, low, medium, high, very high\",\n    \"potassium_status\": \"one of: very low, low, medium, high, very high\",\n    \"organic_matter_status\": \"one of: very low, low, medium, high, very high\",\n    \"organic_matter_percent\": estimated percentage as number 0-20,\n    \"micronutrient_deficiencies\": [\"list suspected deficiencies like zinc, iron, boron, manganese, copper, etc\"],\n    \"color_nutrient_clues\": \"explain what soil color indicates about nutrient status\",\n    \"pH_estimate\": estimated pH as number 4.5-8.5,\n    \"pH_category\": \"one of: very acidic, acidic, neutral, alkaline, very alkaline\",\n    \"confidence_score\": number 0-100,\n    \"reasoning\": \"brief explanation of nutrient assessment based on observations\"\n  }\n}"
+                }
+            },
+            "ui": {
+                "position": {
+                    "x": 467.85185814780937,
+                    "y": -21.89865182475386
+                },
+                "measured": {
+                    "width": 150,
+                    "height": 84
+                },
+                "nodeType": "default",
+                "formDataValid": true
+            },
+            "input": [
+                {
+                    "lane": "image",
+                    "from": "parse_1"
+                }
+            ]
+        },
+        {
+            "id": "response_text_4",
+            "provider": "response_text",
+            "config": {
+                "laneName": "text"
+            },
+            "ui": {
+                "position": {
+                    "x": 798.2508832710565,
+                    "y": 58.472382769140296
+                },
+                "measured": {
+                    "width": 150,
+                    "height": 66
+                },
+                "nodeType": "default",
+                "formDataValid": true
+            },
+            "input": [
+                {
+                    "lane": "text",
+                    "from": "image_vision_openai_1"
+                },
+                {
+                    "lane": "text",
+                    "from": "image_vision_openai_2"
+                },
+                {
+                    "lane": "text",
+                    "from": "image_vision_openai_3"
+                },
+                {
+                    "lane": "text",
+                    "from": "image_vision_openai_4"
+                },
+                {
+                    "lane": "text",
+                    "from": "image_vision_openai_5"
+                },
+                {
+                    "lane": "text",
+                    "from": "image_vision_openai_6"
+                }
+            ]
+        },
+        {
+            "id": "image_vision_openai_4",
+            "provider": "image_vision_openai",
+            "name": "Crop Recommender",
+            "config": {
+                "profile": "openai-4o-mini",
+                "openai-4-1": {},
+                "parameters": {
+                    "google": {}
+                },
+                "openai-4o-mini": {
+                    "systemPrompt": "Recommend the top 5 most suitable crops based on soil conditions, climate, and farm characteristics",
+                    "apikey": "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",
+                    "prompt": "A farmer has the following soil profile and farm information:\n\nTexture: {texture_class}\nSand: {sand_percentage}% | Silt: {silt_percentage}% | Clay: {clay_percentage}%\nNitrogen: {nitrogen_status}\nPhosphorus: {phosphorus_status}\nPotassium: {potassium_status}\nOrganic Matter: {organic_matter_status}\npH: {pH_estimate}\nLocation: {location_country}\nFarm Size: {farm_size_hectares} hectares\nClimate Zone: {climate_zone}\n\nBased on this soil data and location, recommend the top 5 crops that would be most suitable. Return ONLY valid JSON, no markdown, no code blocks, no explanations. Start with { and end with }\n\n{\n  \"crop_recommendations\": [\n    {\n      \"rank\": 1,\n      \"crop_name\": \"specific crop name\",\n      \"suitability_score\": number 0-100,\n      \"soil_fit\": \"one of: excellent, good, fair, poor\",\n      \"climate_fit\": \"one of: excellent, good, fair, poor\",\n      \"market_demand\": \"one of: high, medium, low\",\n      \"water_requirements_liters_per_month\": number,\n      \"typical_yield_kg_per_hectare\": number,\n      \"pest_risks\": [\"list 2-3 most common pests for this crop\"],\n      \"soil_challenges\": [\"specific challenges this crop might face with this soil\"],\n      \"mitigation_strategies\": [\"how to overcome each challenge\"],\n      \"profitability_rating\": \"one of: high, medium, low\",\n      \"why_recommended\": \"brief explanation of why this crop suits the soil and location\"\n    },\n    {\n      \"rank\": 2,\n      \"crop_name\": \"crop name\",\n      \"suitability_score\": number 0-100,\n      \"soil_fit\": \"one of: excellent, good, fair, poor\",\n      \"climate_fit\": \"one of: excellent, good, fair, poor\",\n      \"market_demand\": \"one of: high, medium, low\",\n      \"water_requirements_liters_per_month\": number,\n      \"typical_yield_kg_per_hectare\": number,\n      \"pest_risks\": [\"pest 1\", \"pest 2\", \"pest 3\"],\n      \"soil_challenges\": [\"challenge 1\", \"challenge 2\"],\n      \"mitigation_strategies\": [\"strategy 1\", \"strategy 2\"],\n      \"profitability_rating\": \"one of: high, medium, low\",\n      \"why_recommended\": \"brief explanation\"\n    },\n    {\n      \"rank\": 3,\n      \"crop_name\": \"crop name\",\n      \"suitability_score\": number 0-100,\n      \"soil_fit\": \"one of: excellent, good, fair, poor\",\n      \"climate_fit\": \"one of: excellent, good, fair, poor\",\n      \"market_demand\": \"one of: high, medium, low\",\n      \"water_requirements_liters_per_month\": number,\n      \"typical_yield_kg_per_hectare\": number,\n      \"pest_risks\": [\"pest 1\", \"pest 2\"],\n      \"soil_challenges\": [\"challenge 1\"],\n      \"mitigation_strategies\": [\"strategy 1\"],\n      \"profitability_rating\": \"one of: high, medium, low\",\n      \"why_recommended\": \"brief explanation\"\n    },\n    {\n      \"rank\": 4,\n      \"crop_name\": \"crop name\",\n      \"suitability_score\": number 0-100,\n      \"soil_fit\": \"one of: excellent, good, fair, poor\",\n      \"climate_fit\": \"one of: excellent, good, fair, poor\",\n      \"market_demand\": \"one of: high, medium, low\",\n      \"water_requirements_liters_per_month\": number,\n      \"typical_yield_kg_per_hectare\": number,\n      \"pest_risks\": [\"pest 1\"],\n      \"soil_challenges\": [\"challenge 1\"],\n      \"mitigation_strategies\": [\"strategy 1\"],\n      \"profitability_rating\": \"one of: high, medium, low\",\n      \"why_recommended\": \"brief explanation\"\n    },\n    {\n      \"rank\": 5,\n      \"crop_name\": \"crop name\",\n      \"suitability_score\": number 0-100,\n      \"soil_fit\": \"one of: excellent, good, fair, poor\",\n      \"climate_fit\": \"one of: excellent, good, fair, poor\",\n      \"market_demand\": \"one of: high, medium, low\",\n      \"water_requirements_liters_per_month\": number,\n      \"typical_yield_kg_per_hectare\": number,\n      \"pest_risks\": [\"pest 1\"],\n      \"soil_challenges\": [\"challenge 1\"],\n      \"mitigation_strategies\": [\"strategy 1\"],\n      \"profitability_rating\": \"one of: high, medium, low\",\n      \"why_recommended\": \"brief explanation\"\n    }\n  ],\n  \"crop_rotation_advice\": \"recommendation for rotating crops in subsequent seasons\",\n  \"overall_note\": \"general assessment of farm agricultural potential and suitability\"\n}"
+                }
+            },
+            "ui": {
+                "position": {
+                    "x": 465.79619870895397,
+                    "y": 102.14814185219058
+                },
+                "measured": {
+                    "width": 150,
+                    "height": 93
+                },
+                "nodeType": "default",
+                "formDataValid": true
+            },
+            "input": [
+                {
+                    "lane": "image",
+                    "from": "parse_1"
+                }
+            ]
+        },
+        {
+            "id": "image_vision_openai_5",
+            "provider": "image_vision_openai",
+            "name": "Season planner",
+            "config": {
+                "profile": "openai-4o-mini",
+                "openai-4-1": {},
+                "parameters": {
+                    "google": {}
+                },
+                "openai-4o-mini": {
+                    "apikey": "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",
+                    "systemPrompt": "Create a detailed 6-month planting calendar with specific tasks, water schedules, and fertilizer application timing",
+                    "prompt": "The farmer will be growing the top recommended crop with the following profile:\n\nSoil Type: {texture_class}\npH: {pH_estimate}\nNitrogen Level: {nitrogen_status}\nPhosphorus Level: {phosphorus_status}\nLocation: {location_country}\nClimate Zone: {climate_zone}\n\nCreate a detailed 6-month operational calendar starting from next month. Include specific tasks, water scheduling, and fertilizer applications based on the soil profile. Return ONLY valid JSON, no markdown, no code blocks, no explanations. Start with { and end with }\n\n{\n  \"planting_calendar\": {\n    \"crop\": \"top recommended crop name\",\n    \"location\": \"{location_country}\",\n    \"planting_window_start_month\": number 1-12,\n    \"months\": [\n      {\n        \"month\": 1,\n        \"month_name\": \"January\",\n        \"phase\": \"one of: pre-planting, planting, growth, flowering, maturation, harvest\",\n        \"specific_tasks\": [\n          \"specific task 1 with exact details\",\n          \"specific task 2 with exact details\",\n          \"specific task 3 with exact details\"\n        ],\n        \"soil_preparation\": \"describe specific soil preparation needed for this month\",\n        \"water_schedule\": {\n          \"irrigation_frequency_per_week\": number,\n          \"irrigation_amount_liters_per_day\": number,\n          \"irrigation_method\": \"one of: drip, flood, sprinkler, rain-fed\",\n          \"rainfall_expectation\": \"describe expected rainfall pattern for this region in this month\"\n        },\n        \"fertilizer_applications\": [\n          {\n            \"timing\": \"number of weeks after planting or specific date\",\n            \"fertilizer_type\": \"N-P-K ratio like 10-20-10 or specific nutrient\",\n            \"amount_kg_per_hectare\": number,\n            \"application_method\": \"one of: broadcast, side-dress, foliar, fertigation\",\n            \"reason\": \"explain why this fertilizer at this specific time\"\n          }\n        ],\n        \"pest_monitoring\": [\"pest 1 to scout for\", \"pest 2 to scout for\"],\n        \"disease_monitoring\": [\"disease 1 to watch for\", \"disease 2 to watch for\"],\n        \"expected_plant_height_cm\": number,\n        \"critical_actions\": [\"action 1 that absolutely cannot be missed\", \"action 2 critical for success\"],\n        \"weather_alerts\": \"describe what weather conditions to watch out for this month\"\n      },\n      {\n        \"month\": 2,\n        \"month_name\": \"February\",\n        \"phase\": \"growth phase\",\n        \"specific_tasks\": [\"task 1\", \"task 2\", \"task 3\"],\n        \"soil_preparation\": \"description\",\n        \"water_schedule\": {\n          \"irrigation_frequency_per_week\": number,\n          \"irrigation_amount_liters_per_day\": number,\n          \"irrigation_method\": \"drip/flood/sprinkler/rain-fed\",\n          \"rainfall_expectation\": \"description\"\n        },\n        \"fertilizer_applications\": [{\n          \"timing\": \"timing\",\n          \"fertilizer_type\": \"type\",\n          \"amount_kg_per_hectare\": number,\n          \"application_method\": \"method\",\n          \"reason\": \"reason\"\n        }],\n        \"pest_monitoring\": [\"pest 1\", \"pest 2\"],\n        \"disease_monitoring\": [\"disease 1\"],\n        \"expected_plant_height_cm\": number,\n        \"critical_actions\": [\"action 1\"],\n        \"weather_alerts\": \"description\"\n      },\n      {\n        \"month\": 3,\n        \"month_name\": \"March\",\n        \"phase\": \"growth phase\",\n        \"specific_tasks\": [\"task 1\", \"task 2\"],\n        \"soil_preparation\": \"description\",\n        \"water_schedule\": {\n          \"irrigation_frequency_per_week\": number,\n          \"irrigation_amount_liters_per_day\": number,\n          \"irrigation_method\": \"method\",\n          \"rainfall_expectation\": \"description\"\n        },\n        \"fertilizer_applications\": [{\n          \"timing\": \"timing\",\n          \"fertilizer_type\": \"type\",\n          \"amount_kg_per_hectare\": number,\n          \"application_method\": \"method\",\n          \"reason\": \"reason\"\n        }],\n        \"pest_monitoring\": [\"pest 1\", \"pest 2\"],\n        \"disease_monitoring\": [\"disease 1\"],\n        \"expected_plant_height_cm\": number,\n        \"critical_actions\": [\"action 1\"],\n        \"weather_alerts\": \"description\"\n      },\n      {\n        \"month\": 4,\n        \"month_name\": \"April\",\n        \"phase\": \"flowering phase\",\n        \"specific_tasks\": [\"task 1\", \"task 2\"],\n        \"soil_preparation\": \"minimal\",\n        \"water_schedule\": {\n          \"irrigation_frequency_per_week\": number,\n          \"irrigation_amount_liters_per_day\": number,\n          \"irrigation_method\": \"method\",\n          \"rainfall_expectation\": \"description\"\n        },\n        \"fertilizer_applications\": [{\n          \"timing\": \"timing\",\n          \"fertilizer_type\": \"type\",\n          \"amount_kg_per_hectare\": number,\n          \"application_method\": \"method\",\n          \"reason\": \"reason\"\n        }],\n        \"pest_monitoring\": [\"pest 1\"],\n        \"disease_monitoring\": [\"disease 1\"],\n        \"expected_plant_height_cm\": number,\n        \"critical_actions\": [\"action 1\"],\n        \"weather_alerts\": \"description\"\n      },\n      {\n        \"month\": 5,\n        \"month_name\": \"May\",\n        \"phase\": \"maturation phase\",\n        \"specific_tasks\": [\"task 1\", \"task 2\"],\n        \"soil_preparation\": \"none\",\n        \"water_schedule\": {\n          \"irrigation_frequency_per_week\": number,\n          \"irrigation_amount_liters_per_day\": number,\n          \"irrigation_method\": \"method\",\n          \"rainfall_expectation\": \"description\"\n        },\n        \"fertilizer_applications\": [],\n        \"pest_monitoring\": [\"pest 1\"],\n        \"disease_monitoring\": [\"disease 1\"],\n        \"expected_plant_height_cm\": number,\n        \"critical_actions\": [\"monitor for readiness\"],\n        \"weather_alerts\": \"description\"\n      },\n      {\n        \"month\": 6,\n        \"month_name\": \"June\",\n        \"phase\": \"harvest phase\",\n        \"specific_tasks\": [\"harvest task 1\", \"post-harvest task 1\"],\n        \"soil_preparation\": \"post-harvest recovery\",\n        \"water_schedule\": {\n          \"irrigation_frequency_per_week\": 0,\n          \"irrigation_amount_liters_per_day\": 0,\n          \"irrigation_method\": \"none\",\n          \"rainfall_expectation\": \"description\"\n        },\n        \"fertilizer_applications\": [],\n        \"pest_monitoring\": [],\n        \"disease_monitoring\": [],\n        \"expected_plant_height_cm\": number,\n        \"critical_actions\": [\"harvest at optimal time\"],\n        \"weather_alerts\": \"description\"\n      }\n    ],\n    \"harvest_guidelines\": {\n      \"readiness_indicators\": [\"indicator 1 plant is ready to harvest\", \"indicator 2 plant is ready\"],\n      \"recommended_harvest_date\": \"specific month and date range\",\n      \"expected_yield_kg\": number,\n      \"harvesting_method\": \"description of how to harvest this crop\"\n    },\n    \"post_harvest\": {\n      \"storage_recommendations\": \"how to store and preserve the harvest\",\n      \"soil_recovery\": \"what to do after harvest to prepare soil for next crop\",\n      \"next_crop\": \"suggested next crop for rotation\"\n    }\n  }\n}"
+                }
+            },
+            "ui": {
+                "position": {
+                    "x": 461.51841148723986,
+                    "y": 219.07432591237693
+                },
+                "measured": {
+                    "width": 150,
+                    "height": 84
+                },
+                "nodeType": "default",
+                "formDataValid": true
+            },
+            "input": [
+                {
+                    "lane": "image",
+                    "from": "parse_1"
+                }
+            ]
+        },
+        {
+            "id": "image_vision_openai_6",
+            "provider": "image_vision_openai",
+            "name": "Pest Management",
+            "config": {
+                "profile": "openai-4o-mini",
+                "openai-4-1": {},
+                "parameters": {
+                    "google": {}
+                },
+                "openai-4o-mini": {
+                    "apikey": "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",
+                    "systemPrompt": "Create a comprehensive pest and disease management plan with prevention, monitoring, and control strategies",
+                    "prompt": "The farmer will be growing the top recommended crop in the following conditions:\n\nSoil Type: {texture_class}\nLocation: {location_country}\nClimate Zone: {climate_zone}\nCrop: top recommended crop\n\nCreate a comprehensive pest and disease management plan. Return ONLY valid JSON, no markdown, no code blocks, no explanations. Start with { and end with }\n\n{\n  \"pest_management\": {\n    \"crop\": \"crop name\",\n    \"high_risk_pests\": [\n      {\n        \"pest_name\": \"pest common name\",\n        \"scientific_name\": \"latin name if known\",\n        \"risk_level\": \"one of: very high, high, medium, low\",\n        \"season_active\": \"months when pest is most active\",\n        \"damage_description\": \"detailed description of what damage this pest causes\",\n        \"damage_threshold\": \"number of pests per plant that triggers control action\",\n        \"monitoring\": {\n          \"how_to_scout\": \"specific scouting method and what to look for\",\n          \"scouting_frequency\": \"how often to check (daily, weekly, bi-weekly, etc)\",\n          \"early_warning_signs\": [\"early warning sign 1\", \"early warning sign 2\", \"early warning sign 3\"]\n        },\n        \"prevention_strategies\": [\n          \"cultural practice 1 for prevention\",\n          \"cultural practice 2 for prevention\",\n          \"cultural practice 3 for prevention\"\n        ],\n        \"organic_control_methods\": [\n          \"organic method 1 with specific application details\",\n          \"organic method 2 with specific application details\",\n          \"organic method 3 with specific application details\"\n        ],\n        \"chemical_control_if_necessary\": {\n          \"pesticide_name\": \"name of pesticide\",\n          \"dosage\": \"amount per hectare\",\n          \"application_timing\": \"when to apply relative to crop growth stage\",\n          \"safety_precautions\": \"important safety precautions when applying\"\n        }\n      },\n      {\n        \"pest_name\": \"pest 2 name\",\n        \"scientific_name\": \"latin name\",\n        \"risk_level\": \"high\",\n        \"season_active\": \"months\",\n        \"damage_description\": \"description\",\n        \"damage_threshold\": \"number\",\n        \"monitoring\": {\n          \"how_to_scout\": \"method\",\n          \"scouting_frequency\": \"frequency\",\n          \"early_warning_signs\": [\"sign 1\", \"sign 2\"]\n        },\n        \"prevention_strategies\": [\"strategy 1\", \"strategy 2\"],\n        \"organic_control_methods\": [\"method 1\", \"method 2\"],\n        \"chemical_control_if_necessary\": {\n          \"pesticide_name\": \"name\",\n          \"dosage\": \"amount\",\n          \"application_timing\": \"timing\",\n          \"safety_precautions\": \"precautions\"\n        }\n      },\n      {\n        \"pest_name\": \"pest 3 name\",\n        \"scientific_name\": \"latin name\",\n        \"risk_level\": \"medium\",\n        \"season_active\": \"months\",\n        \"damage_description\": \"description\",\n        \"damage_threshold\": \"number\",\n        \"monitoring\": {\n          \"how_to_scout\": \"method\",\n          \"scouting_frequency\": \"frequency\",\n          \"early_warning_signs\": [\"sign 1\", \"sign 2\"]\n        },\n        \"prevention_strategies\": [\"strategy 1\"],\n        \"organic_control_methods\": [\"method 1\"],\n        \"chemical_control_if_necessary\": {\n          \"pesticide_name\": \"name\",\n          \"dosage\": \"amount\",\n          \"application_timing\": \"timing\",\n          \"safety_precautions\": \"precautions\"\n        }\n      }\n    ],\n    \"disease_risks\": [\n      {\n        \"disease_name\": \"disease name\",\n        \"causal_agent\": \"one of: fungal, bacterial, viral\",\n        \"risk_level\": \"one of: high, medium, low\",\n        \"conditions_favorable\": \"weather/soil conditions that enable disease\",\n        \"prevention\": [\n          \"prevention practice 1\",\n          \"prevention practice 2\",\n          \"prevention practice 3\"\n        ],\n        \"early_symptoms\": [\"symptom 1 to watch for\", \"symptom 2 to watch for\"],\n        \"control_methods\": [\n          \"control method 1 with details\",\n          \"control method 2 with details\"\n        ]\n      },\n      {\n        \"disease_name\": \"disease 2 name\",\n        \"causal_agent\": \"fungal/bacterial/viral\",\n        \"risk_level\": \"medium\",\n        \"conditions_favorable\": \"conditions\",\n        \"prevention\": [\"practice 1\", \"practice 2\"],\n        \"early_symptoms\": [\"symptom 1\", \"symptom 2\"],\n        \"control_methods\": [\"method 1\", \"method 2\"]\n      }\n    ],\n    \"beneficial_organisms\": [\n      \"beneficial insect 1 to encourage\",\n      \"beneficial insect 2 to encourage\",\n      \"beneficial organism 3 to encourage\"\n    ],\n    \"ipm_calendar\": {\n      \"january\": \"specific IPM activities for January\",\n      \"february\": \"specific IPM activities for February\",\n      \"march\": \"specific IPM activities for March\",\n      \"april\": \"specific IPM activities for April\",\n      \"may\": \"specific IPM activities for May\",\n      \"june\": \"specific IPM activities for June\"\n    }\n  }\n}"
+                }
+            },
+            "ui": {
+                "position": {
+                    "x": 460.0924824133351,
+                    "y": 338.8523681203727
+                },
+                "measured": {
+                    "width": 150,
+                    "height": 93
+                },
+                "nodeType": "default",
+                "formDataValid": true
+            },
+            "input": [
+                {
+                    "lane": "image",
+                    "from": "parse_1"
+                }
+            ]
+        }
+    ],
+    "viewport": {
+        "x": -10.910170226861112,
+        "y": 454.3604044775622,
+        "zoom": 0.5
+    },
+    "version": 1,
+    "docRevision": 214,
+    "source": "dropper_1"
+}

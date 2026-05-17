@@ -1,0 +1,201 @@
+{
+    "project_id": "258595e0-0c2e-4ade-9137-4a25645c1363",
+    "components": [
+        {
+            "id": "chat_1",
+            "provider": "chat",
+            "config": {
+                "hideForm": true,
+                "mode": "Source",
+                "parameters": {},
+                "type": "chat"
+            },
+            "ui": {
+                "position": {
+                    "x": -38,
+                    "y": -46
+                },
+                "measured": {
+                    "width": 150,
+                    "height": 66
+                },
+                "nodeType": "default",
+                "formDataValid": true
+            }
+        },
+        {
+            "id": "agent_rocketride_1",
+            "provider": "agent_rocketride",
+            "config": {
+                "agent_description": "",
+                "instructions": [],
+                "max_waves": 10
+            },
+            "ui": {
+                "position": {
+                    "x": 264,
+                    "y": -18
+                },
+                "measured": {
+                    "width": 150,
+                    "height": 96
+                },
+                "nodeType": "default",
+                "formDataValid": true
+            },
+            "input": [
+                {
+                    "lane": "questions",
+                    "from": "chat_1"
+                }
+            ]
+        },
+        {
+            "id": "memory_internal_1",
+            "provider": "memory_internal",
+            "config": {
+                "type": "memory_internal"
+            },
+            "ui": {
+                "position": {
+                    "x": 32,
+                    "y": 198
+                },
+                "measured": {
+                    "width": 150,
+                    "height": 50
+                },
+                "nodeType": "default",
+                "formDataValid": true
+            },
+            "control": [
+                {
+                    "classType": "memory",
+                    "from": "agent_rocketride_1"
+                }
+            ]
+        },
+        {
+            "id": "chart_chartjs_1",
+            "provider": "chart_chartjs",
+            "config": {},
+            "ui": {
+                "position": {
+                    "x": 283,
+                    "y": 325
+                },
+                "measured": {
+                    "width": 150,
+                    "height": 37
+                },
+                "nodeType": "default",
+                "formDataValid": true
+            },
+            "control": [
+                {
+                    "classType": "tool",
+                    "from": "agent_rocketride_1"
+                }
+            ]
+        },
+        {
+            "id": "tool_http_request_1",
+            "provider": "tool_http_request",
+            "config": {
+                "allowDELETE": true,
+                "allowGET": true,
+                "allowHEAD": false,
+                "allowOPTIONS": false,
+                "allowPATCH": true,
+                "allowPOST": true,
+                "allowPUT": true,
+                "maxConcurrentRequests": 5,
+                "rateLimitPerMinute": 100,
+                "rateLimitPerSecond": 10,
+                "type": "tool_http_request",
+                "urlWhitelist": []
+            },
+            "ui": {
+                "position": {
+                    "x": 545,
+                    "y": 208
+                },
+                "measured": {
+                    "width": 150,
+                    "height": 40
+                },
+                "nodeType": "default",
+                "formDataValid": true
+            },
+            "control": [
+                {
+                    "classType": "tool",
+                    "from": "agent_rocketride_1"
+                }
+            ]
+        },
+        {
+            "id": "llm_gemini_1",
+            "provider": "llm_gemini",
+            "config": {
+                "profile": "gemini-3_1-pro-preview",
+                "1-pro-preview": {}
+            },
+            "ui": {
+                "position": {
+                    "x": 108,
+                    "y": 474
+                },
+                "measured": {
+                    "width": 150,
+                    "height": 66
+                },
+                "nodeType": "default",
+                "formDataValid": false
+            },
+            "control": [
+                {
+                    "classType": "llm",
+                    "from": "agent_rocketride_1"
+                },
+                {
+                    "classType": "llm",
+                    "from": "chart_chartjs_1"
+                }
+            ]
+        },
+        {
+            "id": "response_answers_1",
+            "provider": "response_answers",
+            "config": {
+                "laneName": "answers"
+            },
+            "ui": {
+                "position": {
+                    "x": 605,
+                    "y": 10
+                },
+                "measured": {
+                    "width": 150,
+                    "height": 66
+                },
+                "nodeType": "default",
+                "formDataValid": true
+            },
+            "input": [
+                {
+                    "lane": "answers",
+                    "from": "agent_rocketride_1"
+                }
+            ]
+        }
+    ],
+    "viewport": {
+        "x": 65.516909320188,
+        "y": 159.0946348733234,
+        "zoom": 0.8437464175169093
+    },
+    "version": 1,
+    "docRevision": 1,
+    "source": "chat_1"
+}
