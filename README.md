@@ -1,8 +1,12 @@
 # CropSense: AI Soil Analysis and Crop Planning
 
+![CropSense overview](docs/bento.png)
+
 CropSense turns a single photo of soil into a farm plan. Upload a soil photo, add your location, farm size and climate zone, and a six-agent AI pipeline returns a soil profile, the five best crops for your land, a six-month planting calendar, and a pest and disease management plan.
 
 Built for small and mid-size farmers who can't easily get a lab soil test before deciding what to plant.
+
+> Screenshots show the app's built-in sample data.
 
 ## What it does
 
