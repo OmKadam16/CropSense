@@ -2,6 +2,8 @@ import { RocketRideClient } from 'rocketride'
 
 const CONFIGURED_URI = import.meta.env.VITE_ROCKETRIDE_URI || 'http://localhost:5565'
 
+const OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API_KEY || ''
+
 const ENGINE_PORTS = [54619, 5565]
 
 let client = null
@@ -135,7 +137,7 @@ const PIPE_CONFIG = {
       config: {
         profile: 'openai-4o-mini',
         'openai-4o-mini': {
-          apikey: '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',
+          apikey: OPENAI_API_KEY,
           systemPrompt: 'You are an expert soil scientist with 25 years of experience in soil analysis. Your task is to examine soil photos and extract detailed visual characteristics that indicate soil type, health, and composition. Be precise and scientific in your observations.',
           prompt: 'You are an expert soil scientist analyzing soil photos. Extract visual characteristics and return ONLY valid JSON, no markdown, no explanations.\n\n{\n  "visual_analysis": {\n    "color": "describe soil color (dark brown, reddish, light tan, etc)",\n    "texture_appearance": "sandy, silty, clayey, mixed, crumbly, etc",\n    "moisture_level": "dry, moist, or wet",\n    "organic_matter_visible": 0-100,\n    "compaction_signs": true or false,\n    "surface_cracks": "none, minor, moderate, or significant",\n    "visible_aggregates": "describe soil structure",\n    "root_matter": "describe visible roots",\n    "surface_residue": "describe plant material",\n    "confidence_score": 0-100\n  }\n}'
         }
@@ -147,7 +149,7 @@ const PIPE_CONFIG = {
       config: {
         profile: 'openai-4o-mini',
         'openai-4o-mini': {
-          apikey: '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',
+          apikey: OPENAI_API_KEY,
           systemPrompt: 'Classify and analyze soil texture based on the photo user provides to determine soil composition and physical properties',
           prompt: 'You are a soil texture specialist. Based on the soil observations provided, classify the texture and return ONLY valid JSON, no markdown:\n\n{\n  "texture_analysis": {\n    "texture_class": "clay, silty clay, sandy clay, clay loam, silty clay loam, sandy clay loam, loam, silt loam, sandy loam, loamy sand, sand, or silt",\n    "sand_percentage": 0-100,\n    "silt_percentage": 0-100,\n    "clay_percentage": 0-100,\n    "water_holding_capacity": "low, medium, or high",\n    "drainage_rating": "poor, imperfect, moderate, somewhat excessive, or excessive",\n    "compaction_susceptibility": "low, medium, or high",\n    "workability": "poor, fair, good, or excellent",\n    "structural_stability": "poor, fair, good, or excellent",\n    "confidence_score": 0-100,\n    "reasoning": "brief explanation"\n  }\n}'
         }
@@ -159,7 +161,7 @@ const PIPE_CONFIG = {
       config: {
         profile: 'openai-4o-mini',
         'openai-4o-mini': {
-          apikey: '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',
+          apikey: OPENAI_API_KEY,
           systemPrompt: 'Infer and estimate soil nutrient levels (NPK and micronutrients) from soil observations and characteristics',
           prompt: 'Based on the soil observations provided, estimate the soil nutrient status and pH. Return ONLY valid JSON, no markdown, no code blocks, no explanations. Start with { and end with }\n\n{\n  "nutrient_analysis": {\n    "nitrogen_status": "very low, low, medium, high, very high",\n    "phosphorus_status": "very low, low, medium, high, very high",\n    "potassium_status": "very low, low, medium, high, very high",\n    "organic_matter_status": "very low, low, medium, high, very high",\n    "organic_matter_percent": 0-20,\n    "micronutrient_deficiencies": ["zinc, iron, boron, etc"],\n    "color_nutrient_clues": "what color indicates",\n    "pH_estimate": 4.5-8.5,\n    "pH_category": "very acidic, acidic, neutral, alkaline, very alkaline",\n    "confidence_score": 0-100,\n    "reasoning": "brief explanation"\n  }\n}'
         }
@@ -171,7 +173,7 @@ const PIPE_CONFIG = {
       config: {
         profile: 'openai-4o-mini',
         'openai-4o-mini': {
-          apikey: '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',
+          apikey: OPENAI_API_KEY,
           systemPrompt: 'Recommend the top 5 most suitable crops based on soil conditions, climate, and farm characteristics',
           prompt: 'Recommend the top 5 most suitable crops based on the soil and visual data. Return ONLY valid JSON, no markdown, no explanations. Each crop must have these exact fields:\n\n{\n  "crop_recommendations": [\n    {\n      "crop_name": "Crop name",\n      "suitability_score": 85,\n      "soil_fit": "description of soil fit",\n      "market_demand": "high, medium, or low",\n      "typical_yield_kg_per_hectare": 5000,\n      "profitability_rating": "high, medium, or low",\n      "why_recommended": "reason",\n      "soil_challenges": "challenges",\n      "mitigation_strategies": "how to mitigate"\n    }\n  ]\n}'
         }
@@ -183,7 +185,7 @@ const PIPE_CONFIG = {
       config: {
         profile: 'openai-4o-mini',
         'openai-4o-mini': {
-          apikey: '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',
+          apikey: OPENAI_API_KEY,
           systemPrompt: 'Create a detailed 6-month planting calendar with specific tasks, water schedules, and fertilizer application timing',
           prompt: 'Create a 6-month planting calendar based on soil data. Return ONLY valid JSON, no markdown, no explanations, with these exact fields:\n\n{\n  "planting_calendar": {\n    "crop": "primary crop name",\n    "planting_window_start_month": 3,\n    "months": [\n      {\n        "name": "March",\n        "tasks": ["Prepare soil", "Plant seeds"],\n        "water_schedule": "Water every 3 days",\n        "fertilizer_application": "Apply balanced NPK"\n      }\n    ],\n    "harvest_guidelines": "guidelines",\n    "post_harvest": "post-harvest steps"\n  }\n}'
         }
@@ -195,7 +197,7 @@ const PIPE_CONFIG = {
       config: {
         profile: 'openai-4o-mini',
         'openai-4o-mini': {
-          apikey: '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',
+          apikey: OPENAI_API_KEY,
           systemPrompt: 'Create a comprehensive pest and disease management plan with prevention, monitoring, and control strategies',
           prompt: 'Create a pest and disease management plan based on soil and crop data. Return ONLY valid JSON, no markdown, no explanations, with these exact fields:\n\n{\n  "pest_management": {\n    "crop": "primary crop name",\n    "high_risk_pests": [{"pest_name": "pest", "risk_level": "high", "description": "details"}],\n    "disease_risks": [{"name": "disease", "risk_level": "medium", "symptoms": "symptoms", "prevention": "prevention"}],\n    "beneficial_organisms": [{"name": "beneficial", "role": "controls pest X", "attraction_method": "plant Y"}],\n    "ipm_calendar": {\n      "March": "Apply neem oil",\n      "April": "Introduce beneficial insects"\n    }\n  }\n}'
         }
